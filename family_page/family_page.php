@@ -1,3 +1,8 @@
+<?php
+
+    include_once("../lib/auto.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +21,7 @@
         <div class="menu">
             <ul>
                 <div class="menu_rozdelovac"></div>
-                <li><a href="../home_page/home_page.html">home</a></li>
+                <li><a href="../home_page.html">home</a></li>
                 <li><a href="#">tvoje rodina</a></li>
                 <li><a href="#">contact</a></li>
             </ul>
@@ -24,10 +29,6 @@
         <div id="main">
             <div id="header"></div>
             <div id="content">
-                <div class='family'><a href='#'></a></div>
-                <div class='family'><a href='#'></a></div>
-                <div class='family'><a href='#'></a></div>
-                <div class='family'><a href='#'></a></div>
                 <div class='family'><a href='#'></a></div>
                 <div class='family'><a href='#'></a></div>
                 <div class='family'><a href='#'></a></div>
