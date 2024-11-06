@@ -5,7 +5,7 @@
            [--config-env=<name>=<envvar>] <command> [<args>]
 
 These are common Git commands used in various situations:
-
+https://prod.liveshare.vsengsaas.visualstudio.com/join?F5CFB228B7943626C0F1AC620EC17D047D6C
 start a working area (see also: git help tutorial)
    clone     Clone a repository into a new directory
    init      Create an empty Git repository or reinitialize an existing one
