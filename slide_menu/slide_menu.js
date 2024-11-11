@@ -8,7 +8,7 @@
 $(document).ready(function (){
 
 
-    let html = '<nav class="open_menu"><span></span><span></span><span></span></nav><div class="menu"><ul><div class="menu_rozdelovac"></div><li><a href="../home_page.html">home</a></li><li><a href="#">tvoje rodina</a></li><li><a href="#">contact</a></li></ul></div>';
+    let html = '<nav class="open_menu"><span></span><span></span><span></span></nav><div class="menu"><ul><div class="menu_rozdelovac"></div><li><a href="#">home</a></li><li><a href="#">tvoje rodina</a></li><li><a href="#">contact</a></li></ul></div>';
     $( "#center" ).append(html);
 
     let css = "<link rel='stylesheet' href='slide_menu/slide_menu.css'>";
