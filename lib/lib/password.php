@@ -13,36 +13,42 @@
             //echo "true1<br>";
             $c++;
         } else {
-            //echo "min 8 pismen<br>";
+            $_SESSION["password"]["8_chars"] = "Musí mít min. 8 zanků";
         }
 
-        if ($pass_preg_match_word == 0) {
-            if (!preg_match("/[ ]/", $pass)) {
-                //echo "true2<br>";
-                $pass_preg_match_word++;
-                $c++;
-            }
-        }
         
-        if ($pass_preg_match == 0) {
-            $pattern = "/['£$%^&*()}{:#~?><>,;@|\=-_+¬`]/";
-
-            if (preg_match($pattern, $pass)) {
-                $pass_preg_match++;
-                $c++;
-                //echo "Pasword is VALID.<br>";
-            } else {
-                //echo "Pasword is INVALID containing special charakters.<br>";
-            }
-        }
         
         foreach ($password as $key) {
+
+            if ($pass_preg_match_word == 0) {
+                if (!preg_match("/[ ]/", $pass)) {
+                    //echo "true2<br>";
+                    $pass_preg_match_word++;
+                    $c++;
+                } else {
+                    $_SESSION["password"]["no_space"] = "Nesmí obashovat mezeru";
+                }
+            }
             
+            if ($pass_preg_match == 0) {
+                $pattern = "/['£$%^&*()}{:#~?><>,;@|\=-_+¬`]/";
+    
+                if (preg_match($pattern, $pass)) {
+                    $pass_preg_match++;
+                    $c++;
+                    #$_SESSION["password"]["is_invalid"] = "Pasword is VALID.<br>";
+                } else {
+                    $_SESSION["password"]["spec_characters"] = "Musí obsahovat spec. znak";
+                }
+            }
+
             if ($pass_upper == 0) {
                 if (ctype_upper($key)) {
                     //echo "true4<br>";
                     $pass_upper++;
                     $c++;
+                } else {
+                    $_SESSION["password"]["upper_char"] = "Musí obsahovat min. 1 velké pismeno";
                 }
             }
             if ($pass_digit == 0) {
@@ -50,6 +56,8 @@
                     //echo "true5<br>";
                     $pass_digit++;
                     $c++;
+                } else {
+                    $_SESSION["password"]["digit"] = "Musí obsahovat min. 1 číslo";
                 } 
             }  
         }

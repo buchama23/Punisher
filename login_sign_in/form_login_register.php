@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <div class="wrapper">
+    <div class="wrapper active">
         <span class="rotate-bg"></span>
         <span class="rotate-bg2"></span>
 
