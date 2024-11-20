@@ -60,7 +60,10 @@
 
         }
     } else {
-        echo "kokot";
+        if ($is_nickname_login == 1) {
+            $_SESSION["value"]["nickname_login"] = $nickname_login;
+
+        }
 
         header("location: form_login_register.php");
     }

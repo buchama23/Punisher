@@ -42,22 +42,12 @@
         $_SESSION["error_nickname"]["nothing"] = "nevyplněné pole";
     }
 
-    if(isset($_POST["parent_child"]) and !empty($_POST["parent_child"])) {
-        $parent_child = $_POST["parent_child"];
-        $is_parent_child++;
-        $c++;
-    } else {
-        $_SESSION["error_nickname"]["nothing"] = "nevyplněné pole";
-    }
-
     if(isset($_POST["password_1"]) and !empty($_POST["password_1"]) and $_POST["password_2"] === $_POST["password_1"] and $is_nickname == 1) {
         $password_1 = $_POST["password_1"];
         if (password_checker($password_1)) {
             $password = pass_hash_salt($password_1, $nickname);
             $c++;
-        } else {
-            echo "spatne heslo";
-        } 
+        }
     } else {
         $_SESSION["error_password_1"]["nothing"] = "nezadaný password_1";
     }
@@ -74,7 +64,7 @@
     if ($c == count($_POST)) {
 
         $_SESSION["ales"]["gute"] = "vše v pořádku";
-        header("location: form_register.php");
+        //header("location: form_register.php");
 
         $data = [
             ":name" => $name,
