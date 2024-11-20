@@ -54,21 +54,17 @@
         if(count($data) == 1) {
             //var_dump($data);
             $_SESSION["user_ID"] = $data[0]["user_ID"];
-            $_SESSION["parent_child"] = $data[0]["parent_child"];
+            header("location: ../home_page.php");
+            //$_SESSION["parent_child"] = $data[0]["parent_child"];
             //$_SESSION["user_level"] = access_control($_SESSION["user_ID"]);
 
-            /*if ($_SESSION["user_level"] == 1) {
-                header("location: ../../front_end/main_page.php");
-            } else {
-                header("location: ../../admin/main_admin_page.php");
-            }*/
         }
     } else {
         echo "kokot";
 
-        //header("location: form_login_register.html");
+        header("location: form_login_register.php");
     }
-    //header("location: form_login_register.html"); //zakomentovat jako zkousku, je az po konci ukonceni programu
+    header("location: form_login_register.php"); 
 
 
 ?>

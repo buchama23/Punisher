@@ -33,20 +33,21 @@
     // -----------------------------------------------------------------------------------------------------------------
 
     if($c == count($_POST)) {
+        $bytes = random_bytes(3);
+        $code = bin2hex($bytes);
 
         $data_kontrola = [
             ":name" => $name_family,
-            ":comment" => $comment_family
+            ":comment" => $comment_family,
+            ":code" => $code
         ];
     
-        $sql_kontrola = "SELECT * FROM punisher_family WHERE name = :name AND comment = :comment";
+        $sql_kontrola = "SELECT * FROM punisher_family WHERE name = :name AND comment = :comment AND code = :code";
         $con_kontrola = $db->prepare($sql_kontrola);
         $con_kontrola->execute($data_kontrola);
         $data_kontrola = $con_kontrola->fetchALL(PDO::FETCH_ASSOC);
 
         if(count($data_kontrola) == 0) {
-            $bytes = random_bytes(3);
-            $random_code = bin2hex($bytes);
             $d++;
             $data = [
                 ":name" => $name_family,
@@ -96,10 +97,10 @@
         $data_meta = [
             ":user_ID" => $_SESSION["user_ID"],
             ":family_ID" => $family_ID,
-            ":parent_child" => $_SESSION["parent_child"]
+            //":parent_child" => $_SESSION["parent_child"]
         ];
 
-        $sql_meta = "INSERT INTO punisher_family_meta  (user_ID, family_ID, parent_child) VALUES (:user_ID, :family_ID, :parent_child)";
+        $sql_meta = "INSERT INTO punisher_family_meta  (user_ID, family_ID/*, parent_child*/) VALUES (:user_ID, :family_ID/*, :parent_child*/)";
         $con_meta = $db->prepare($sql_meta);
         $con_meta->execute($data_meta);
         $data_meta = $con_meta->fetchALL(PDO::FETCH_ASSOC);

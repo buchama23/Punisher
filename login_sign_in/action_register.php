@@ -80,7 +80,7 @@
             ":name" => $name,
             ":surname" => $surname,
             ":nickname" => $nickname,
-            ":parent_child" => $parent_child,
+            ":parent_child" => "parent",
             ":password" => $password
         ];
 
@@ -104,16 +104,9 @@
             $_SESSION["value"]["nickname"] = $nickname;
 
         }
-        if ($is_parent_child == 1) {
-            $_SESSION["value"]["parent_child"] = $parent_child;
-            
-        }
-        /*if (!$c == 4) {
-            header("location: form_register.php");
-        }*/
     }
 
-    header("location: form_login_register.html"); //zakomentovat jako zkousku, je az po konci ukonceni programu
+    header("location: form_login_register.php#"); //zakomentovat jako zkousku, je az po konci ukonceni programu
     
 
 ?>
